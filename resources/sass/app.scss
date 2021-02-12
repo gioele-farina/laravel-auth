@@ -10,11 +10,18 @@
 .upload-image {
   margin-top: 5px;
 }
+
+.avatar_plus_name {
+  display: flex;
+}
 .profile-image-big {
   max-width: 60%;
   height: auto;
 }
-
+.header_profile_icon {
+  max-height: 40px;
+  width: auto;
+}
 #brand-logo {
   width: 35px;
   height: auto;

@@ -25,6 +25,8 @@ class HomeController extends Controller
         'upload-icon' => 'required|image|max:5000'
       ]);
 
+      $this-> fileDeleteUserIcon();
+
       $img = $request -> file('upload-icon');
       $ext = $img -> getClientOriginalExtension();
       $name = rand(100000, 999999) . '_' . time();
