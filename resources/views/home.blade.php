@@ -16,6 +16,18 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+                <div class="card-header upload-image">Upload you profile image</div>
+                <div class="card-body">
+                  <form action="" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      @method('POST')
+                      <input name="upload-icon" type="file">
+                      <br><br>
+                      <input type="submit" value="Upload file">
+                  </form>
+                </div>
+
             </div>
         </div>
     </div>
