@@ -19,14 +19,32 @@
 
                 <div class="card-header upload-image">Upload you profile image</div>
                 <div class="card-body">
-                  <form action="" method="POST" enctype="multipart/form-data">
+                  <form action="{{route('upload-icon')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       @method('POST')
                       <input name="upload-icon" type="file">
                       <br><br>
                       <input type="submit" value="Upload file">
                   </form>
+                  <a href="{{route('delete-icon')}}" class="btn btn-danger">Delete avatar</a>
                 </div>
+
+                @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif
+
+                @if (Auth::user() -> profile_icon)
+                  <div class="card-header">Your avatar</div>
+                  <div class="card-body">
+                    <img class="profile-image-big" src="{{asset('storage/icons/' . Auth::user() -> profile_icon )}}" alt="">
+                  </div>
+                @endif
 
             </div>
         </div>
